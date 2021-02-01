@@ -1,0 +1,54 @@
+.logo {
+	&--container {
+		width: 48px;
+		height: 48px;
+		outline: 3px solid black;
+		border: 0px;
+		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: transparent;
+		margin-left: 3px;
+	}
+	&--icon {
+		width: 32px;
+		height: 32px;
+	}
+}
+
+.header {
+	&--container {
+		display: flex;
+		height: 140px;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&--menu {
+		font-size: 16px;
+		display: flex;
+
+		&-item {
+			margin-left: 16px;
+			padding-bottom: 6px;
+			text-decoration: none;
+
+			&:hover {
+				border-bottom: 3px solid black;
+				margin-bottom: -3px;
+			}
+		}
+	}
+
+	&--darkmode {
+		&--toggle {
+			height: 28px;
+			width: 28px;
+			transition: 70ms;
+		}
+		&--toggle:hover {
+			cursor: pointer;
+		}
+	}
+}

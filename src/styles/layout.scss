@@ -1,0 +1,11 @@
+@import "./_mixins.scss";
+
+.site-wrapper {
+	margin: 0 auto;
+	max-width: 1100px;
+	padding: 0;
+}
+
+.heading-01 {
+	@include font("xxxl");
+}
