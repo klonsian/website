@@ -1,13 +1,7 @@
-import { Link, navigate } from "gatsby"
 import PropTypes from "prop-types"
-import React, {
-	useContext,
-	createRef,
-	useEffect,
-	useState,
-} from "react"
-import firebase from "gatsby-plugin-firebase"
-import { AuthContext } from "../context/auth"
+import React, { useEffect, useRef } from "react"
+// import firebase from "gatsby-plugin-firebase"
+// import { AuthContext } from "../context/auth"
 import Logo from "./logo"
 import lottie from "lottie-web"
 import animation from "../_data/animations/dark-mode-toggle.json"
@@ -22,30 +16,19 @@ const Header = ({ siteTitle }) => {
 	// 	navigate("/login")
 	// }
 
-	let animationContainer = createRef()
+	const animationContainer = useRef(null)
 
-	const [isDark, setIsDark] = useState(false)
+	let anim = null
+
 	useEffect(() => {
-		const anim = lottie.loadAnimation({
+		anim = lottie.loadAnimation({
 			container: animationContainer.current,
 			renderer: "svg",
 			loop: false,
 			autoplay: false,
 			animationData: animation,
 		})
-
-		animationContainer.current.addEventListener("click", (e) => {
-			if (isDark === false) {
-				anim.playSegments([0, 24], true)
-				setIsDark(true)
-			} else {
-				anim.playSegments([24, 48], true)
-				setIsDark(false)
-			}
-			console.log(isDark)
-		})
-		return () => anim.destroy()
-	}, [])
+	}, [animationContainer])
 
 	return (
 		<div className="site-wrapper">
@@ -57,24 +40,35 @@ const Header = ({ siteTitle }) => {
 							{({ theme, toggleTheme }) => (
 								<label>
 									<input
+										className="header--input"
 										type="checkbox"
-										onChange={(e) =>
+										onChange={(e) => {
 											toggleTheme(
 												e.target.checked
 													? "dark"
 													: "light"
 											)
-										}
+											if (!e.target.checked) {
+												anim?.playSegments(
+													[24, 48],
+													true
+												)
+											} else {
+												anim?.playSegments(
+													[0, 24],
+													true
+												)
+											}
+										}}
 										checked={theme === "dark"}
-									/>{" "}
-									Dark mode
+									/>
+									<div
+										className="header--darkmode--toggle"
+										ref={animationContainer}
+									/>
 								</label>
 							)}
 						</ThemeToggler>
-						<div
-							className="header--darkmode--toggle"
-							ref={animationContainer}
-						/>
 						<HeaderLink to="/projects" title="Projects" />
 						<HeaderLink to="/about" title="About" />
 					</div>
