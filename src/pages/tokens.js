@@ -8,17 +8,17 @@ import Layout from "../components/layout"
 const IndexPage = () => {
 	return (
 		<Layout>
-			<div class="bx--row">
-				<div class="bx--col">
+			<div className="bx--row">
+				<div className="bx--col">
 					<p>Type Tokens</p>
 				</div>
-				<div class="bx--col">
+				<div className="bx--col">
 					<p className="heading-01">H1</p>
 				</div>
-				<div class="bx--col">
+				<div className="bx--col">
 					<p>Now go build something great.</p>
 				</div>
-				<div class="bx--col">
+				<div className="bx--col">
 					<p>
 						<Link to="/projects/page-2/">
 							Go to page 2

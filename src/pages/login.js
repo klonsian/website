@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react"
 
-import { AuthContext } from "../context/auth"
 import cx from "classnames"
 import firebase from "gatsby-plugin-firebase"
 import { navigate } from "gatsby"
+import { AuthContext } from "../context/auth"
 
 const Login = () => {
 	const [data, setData] = useState({

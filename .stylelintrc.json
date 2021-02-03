@@ -1,0 +1,30 @@
+{
+	"extends": [
+		"stylelint-config-standard",
+		"stylelint-config-prettier",
+		"stylelint-config-property-sort-order-smacss"
+	],
+	"plugins": ["stylelint-prettier", "stylelint-order"],
+	"rules": {
+		"unit-disallowed-list": ["pt", "in"],
+		"prettier/prettier": true,
+		"at-rule-no-unknown": [
+			true,
+			{
+				"ignoreAtRules": [
+					"tailwind",
+					"apply",
+					"layer",
+					"variants",
+					"responsive",
+					"screen",
+					"include"
+				]
+			}
+		],
+		"declaration-block-trailing-semicolon": null,
+		"no-descending-specificity": null,
+		"value-list-comma-newline-after": null,
+		"declaration-colon-newline-after": null
+	}
+}

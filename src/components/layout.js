@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
 				siteTitle={data.site.siteMetadata.title || `Title`}
 			/>
 			<div className="site-wrapper">
-				<div class="bx--grid">
+				<div className="bx--grid">
 					<main>{children}</main>
 					<footer
 						style={{
