@@ -1,0 +1,66 @@
+/* The switch - the box around the slider */
+.switch {
+	&--container {
+		display: flex;
+		align-items: center;
+		width: 28px;
+		height: 28px;
+		margin-left: 32px;
+	}
+
+	&--toggle {
+		position: relative;
+		display: flex;
+		align-items: top;
+		height: 16px;
+	}
+
+	&--toggle:hover {
+		cursor: pointer;
+	}
+
+	&--toggle::before {
+		position: absolute;
+		top: 0;
+		display: block;
+		box-sizing: border-box;
+		width: 28px;
+		height: 16px;
+		background-color: #8d8d8d;
+		border-radius: 12px;
+		transition: box-shadow 70ms cubic-bezier(0.2, 0, 1, 0.9),
+			background-color 70ms cubic-bezier(0.2, 0, 1, 0.9);
+		content: "";
+	}
+
+	&--toggle::after {
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		display: block;
+		box-sizing: border-box;
+		width: 12px;
+		height: 12px;
+		background-color: #fff;
+		border-radius: 50%;
+		transition: transform 70ms cubic-bezier(0.2, 0, 1, 0.9);
+		content: "";
+	}
+
+	&--input {
+		opacity: 0;
+		width: 0;
+		height: 0;
+		display: none;
+	}
+
+	&--input:checked + ::before {
+		background-color: #2196f3;
+	}
+
+	&--input:checked + ::after {
+		-webkit-transform: translateX(12px);
+		-ms-transform: translateX(12px);
+		transform: translateX(12px);
+	}
+}

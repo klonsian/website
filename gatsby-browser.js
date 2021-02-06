@@ -9,13 +9,17 @@
 import "firebase/auth"
 import React from "react"
 import AuthProvider from "./src/context/auth"
+import { ThemeProvider } from "./src/context/themeContext"
 import "./src/styles/global.scss"
 import "./src/styles/layout.scss"
 import "./src/styles/header.scss"
 import "./src/styles/login.scss"
-import "./src/static/fonts/fonts.scss"
 import "./src/styles/_mixins.scss"
+import "./src/styles/switch.scss"
+import "./src/styles/custom.scss"
 
 export const wrapRootElement = ({ element }) => (
-	<AuthProvider>{element}</AuthProvider>
+	<AuthProvider>
+		<ThemeProvider>{element}</ThemeProvider>
+	</AuthProvider>
 )

@@ -1,0 +1,21 @@
+.custom {
+	&--link {
+		text-decoration: none;
+		transition: 0.2s ease;
+	}
+
+	&--link::after {
+		content: "→";
+		margin-left: 8px;
+		transition: 0.2s ease;
+	}
+
+	&--link:hover {
+		color: #64b5f6;
+	}
+
+	&--link:hover::after {
+		content: "→";
+		margin-left: 12px;
+	}
+}

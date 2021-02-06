@@ -1,46 +1,36 @@
-@import "@carbon/grid/scss/grid";
+$feature-flags: (
+	grid-columns-16: true,
+);
 
-// Gatsby Theming
+@import "@carbon/grid/scss/grid";
+@import "./typograpy.scss";
+
+html {
+	font-size: 100%;
+}
+
+main {
+	padding-top: 140px;
+}
+
+@media screen and (max-width: 671px) {
+	main {
+		padding-top: 64px;
+	}
+}
 
 body {
-	--bg: white;
-	--textNormal: #000;
-	--textTitle: #000;
-	--textLink: black;
-	--headerLinkBorder: black;
-
 	margin: 0;
 	padding: 0;
 	overflow: scroll;
-	background-color: var(--bg);
+	background-color: white;
 	font-family: "Munken Sans", sans-serif;
 	font-weight: 400;
 	line-height: 1.75;
 }
 
-body.dark {
-	-webkit-font-smoothing: antialiased;
-
-	--bg: #121212;
-	--textNormal: rgba(255, 255, 255, 1);
-	--textTitle: white;
-	--textLink: white;
-	--headerLinkBorder: white;
-	--hr: hsla(0, 0%, 100%, 0.2);
-}
-
-// Disableing of Color in prefilled Texts (e.g. Chrome, Firefox)
+// Disabling of Color in prefilled Texts (e.g. Chrome, Firefox)
 
 input {
 	filter: none;
-}
-
-.wf-munkensans-n4-inactive.wf-inactive {
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-}
-
-html {
-	font-size: 100%;
 }

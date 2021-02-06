@@ -5,14 +5,7 @@ import { Link } from "gatsby"
 
 const HeaderLink = ({ title, ...rest }) => {
 	return (
-		<Link
-			className="header--menu-item"
-			style={{
-				color: "var(--textLink)",
-				borderColor: "var(--headerLinkBorder)",
-			}}
-			{...rest}
-		>
+		<Link className="header--menu-item" {...rest}>
 			{title}
 		</Link>
 	)

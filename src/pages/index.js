@@ -1,31 +1,31 @@
 import React from "react"
 import { Link } from "gatsby"
-
+import { Column, Row } from "carbon-components-react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import CustomLink from "../components/customLink"
 
 const IndexPage = () => {
 	return (
 		<Layout>
 			<SEO title="Home" />
-			<div className="bx--row">
-				<div className="bx--col">
+			<Row>
+				<Column md={2}>
 					<p>Hi people</p>
-				</div>
-				<div className="bx--col">
+				</Column>
+				<Column md={2}>
 					<p>Welcome to your new Gatsby site.</p>
-				</div>
-				<div className="bx--col">
+				</Column>
+				<Column md={2}>
 					<p>Now go build something great.</p>
-				</div>
-				<div className="bx--col">
-					<p>
-						<Link to="/projects/page-2/">
-							Go to page 2
-						</Link>
-					</p>
-				</div>
-			</div>
+				</Column>
+				<Column md={2}>
+					<CustomLink
+						to="/projects/page-2/"
+						title="Go to page 2"
+					/>
+				</Column>
+			</Row>
 		</Layout>
 	)
 }
