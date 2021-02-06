@@ -1,13 +1,12 @@
 .custom {
 	&--link {
 		text-decoration: none;
-		transition: 0.2s ease;
 	}
 
 	&--link::after {
 		content: "→";
 		margin-left: 8px;
-		transition: 0.2s ease;
+		transition: margin-left 0.2s ease;
 	}
 
 	&--link:hover {

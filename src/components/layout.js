@@ -30,7 +30,6 @@ const ThemedLayout = styled.div`
 	color: ${(props) => themes[props.theme.name].foreground};
 	background-color: ${(props) =>
 		themes[props.theme.name].background};
-	transition: all 0.4s ease;
 	min-height: 100vh;
 
 	& a {
