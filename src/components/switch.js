@@ -11,17 +11,15 @@ const Switch = ({ onChange, id, checked }) => {
 				onChange={onChange}
 				checked={checked}
 			/>
-			<label for={id} className="switch--toggle"></label>
+			<label htmlFor={id} className="switch--toggle"></label>
 		</div>
 	)
 }
 
-// Header.propTypes = {
-// 	siteTitle: PropTypes.string,
-// }
-
-// Header.defaultProps = {
-// 	siteTitle: ``,
-// }
+Switch.propTypes = {
+	onChange: PropTypes.func.isRequired,
+	id: PropTypes.string.isRequired,
+	checked: PropTypes.node,
+}
 
 export default Switch

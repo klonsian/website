@@ -1,6 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
-import { Column, Row } from "carbon-components-react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import CustomLink from "../components/customLink"
@@ -9,23 +7,25 @@ const IndexPage = () => {
 	return (
 		<Layout>
 			<SEO title="Home" />
-			<Row>
-				<Column md={2}>
+			<div>
+				<div>
 					<p>Hi people</p>
-				</Column>
-				<Column md={2}>
+				</div>
+				<div>
 					<p>Welcome to your new Gatsby site.</p>
-				</Column>
-				<Column md={2}>
+				</div>
+				<div>
 					<p>Now go build something great.</p>
-				</Column>
-				<Column md={2}>
-					<CustomLink
-						to="/projects/page-2/"
-						title="Go to page 2"
-					/>
-				</Column>
-			</Row>
+				</div>
+				<div>
+					<p>
+						<CustomLink
+							to="/work/page-2/"
+							title="Go to page 2"
+						/>
+					</p>
+				</div>
+			</div>
 		</Layout>
 	)
 }

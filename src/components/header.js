@@ -1,32 +1,29 @@
 import PropTypes from "prop-types"
-import React from "react"
-// import Switch from "react-switch"
+import React, { useContext } from "react"
+import { Link, navigate } from "gatsby"
 import Switch from "./switch"
-// import firebase from "gatsby-plugin-firebase"
-// import { AuthContext } from "../context/auth"
+import firebase from "gatsby-plugin-firebase"
+import { AuthContext } from "../context/auth"
 import HeaderLink from "./headerLink"
 import SiteWrapper from "./siteWrapper"
-import { Grid } from "carbon-components-react"
 
 const Header = ({ siteTitle, theme }) => {
-	// const { user } = useContext(AuthContext)
+	const { user } = useContext(AuthContext)
 
-	// const handleLogout = async () => {
-	// 	await firebase.auth().signOut()
-	// 	navigate("/login")
-	// }
+	const handleLogout = async () => {
+		await firebase.auth().signOut()
+		navigate("/login")
+	}
 
 	return (
 		<section id="header">
 			<SiteWrapper>
 				<header className="header--box">
-					<Grid className="header--container">
+					<div className="header--container">
 						<HeaderLink to="/" title="Fabian Klonsdorf" />
 						<div className="header--menu">
-							<HeaderLink
-								to="/projects"
-								title="Projects"
-							/>
+							<HeaderLink to="/work" title="Work" />
+							<HeaderLink to="/blog" title="Blog" />
 							<HeaderLink to="/about" title="About" />
 							<Switch
 								onChange={() =>
@@ -42,18 +39,20 @@ const Header = ({ siteTitle, theme }) => {
 							/>
 						</div>
 						{/* <h6>
-						{!user ? (
-							<>
-								<Link to="/login">Login</Link>
-								<Link to="/register">Register</Link>
-							</>
-						) : (
-							<Link onClick={handleLogout} to="/#!">
-								Logout
-							</Link>
-						)}
-					</h6> */}
-					</Grid>
+							{!user ? (
+								<>
+									<Link to="/login">Login</Link>
+									<Link to="/register">
+										Register
+									</Link>
+								</>
+							) : (
+								<Link onClick={handleLogout} to="/#!">
+									Logout
+								</Link>
+							)}
+						</h6> */}
+					</div>
 				</header>
 			</SiteWrapper>
 		</section>

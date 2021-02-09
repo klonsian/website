@@ -17,6 +17,7 @@ import "./src/styles/login.scss"
 import "./src/styles/_mixins.scss"
 import "./src/styles/switch.scss"
 import "./src/styles/custom.scss"
+import "./src/styles/grid.scss"
 
 export const wrapRootElement = ({ element }) => (
 	<AuthProvider>

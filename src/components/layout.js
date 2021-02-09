@@ -12,13 +12,12 @@ import { ThemeContext } from "../context/themeContext"
 import styled from "@emotion/styled"
 import Header from "./header"
 import SiteWrapper from "./siteWrapper"
-import { Grid } from "carbon-components-react"
 import CustomLink from "./customLink"
 
 const themes = {
 	light: {
-		foreground: "inherit",
-		background: "inherit",
+		foreground: "#222222",
+		background: "#ffffff",
 	},
 	dark: {
 		foreground: "#ffffff",
@@ -59,8 +58,9 @@ const Layout = ({ children }) => {
 						}
 						theme={theme}
 					/>
+
 					<SiteWrapper>
-						<Grid>
+						<div>
 							<main>{children}</main>
 							<footer
 								style={{
@@ -76,7 +76,7 @@ const Layout = ({ children }) => {
 									title="Gatsby"
 								/>
 							</footer>
-						</Grid>
+						</div>
 					</SiteWrapper>
 				</ThemedLayout>
 			)}

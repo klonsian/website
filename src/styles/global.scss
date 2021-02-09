@@ -1,8 +1,3 @@
-$feature-flags: (
-	grid-columns-16: true,
-);
-
-@import "@carbon/grid/scss/grid";
 @import "./typograpy.scss";
 
 html {

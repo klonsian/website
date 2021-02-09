@@ -58,4 +58,48 @@
 			}
 		}
 	}
+
+	&--mobile {
+		&-icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&-button {
+			position: relative;
+			z-index: 2;
+			padding: 12px;
+			background-color: transparent;
+			outline: none;
+			border: 0;
+			height: 48px;
+			width: 48px;
+			margin: 16px;
+
+			&:hover {
+				cursor: pointer;
+				background-color: lightgray;
+			}
+		}
+
+		&-container {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: inherit;
+			z-index: 1;
+			background-color: white;
+		}
+
+		&-menu {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			width: 100%;
+		}
+	}
 }
