@@ -1,28 +1,28 @@
 import React from "react"
-import { Link } from "gatsby"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import CustomLink from "../components/customLink"
 
 const IndexPage = () => {
 	return (
 		<Layout>
 			<SEO title="Home" />
-			<div className="bx--row">
-				<div className="bx--col">
+			<div>
+				<div>
 					<p>Hi people</p>
 				</div>
-				<div className="bx--col">
+				<div>
 					<p>Welcome to your new Gatsby site.</p>
 				</div>
-				<div className="bx--col">
+				<div>
 					<p>Now go build something great.</p>
 				</div>
-				<div className="bx--col">
+				<div>
 					<p>
-						<Link to="/projects/page-2/">
-							Go to page 2
-						</Link>
+						<CustomLink
+							to="/work/page-2/"
+							title="Go to page 2"
+						/>
 					</p>
 				</div>
 			</div>

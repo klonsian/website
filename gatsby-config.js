@@ -18,7 +18,7 @@ module.exports = {
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`,
 		`gatsby-plugin-sass`,
-		`gatsby-plugin-dark-mode`,
+		`gatsby-plugin-emotion`,
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
@@ -29,15 +29,6 @@ module.exports = {
 				theme_color: `#663399`,
 				display: `minimal-ui`,
 				icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-			},
-		},
-		{
-			resolve: "gatsby-plugin-web-font-loader",
-			options: {
-				custom: {
-					families: ["Munken Sans"],
-					urls: ["/fonts/fonts.css"],
-				},
 			},
 		},
 		{
@@ -66,7 +57,7 @@ module.exports = {
 		},
 		{
 			resolve: `gatsby-plugin-create-client-paths`,
-			options: { prefixes: [`/projects/*`] },
+			options: { prefixes: [`/work/*`] },
 		},
 	],
 }

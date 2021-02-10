@@ -8,9 +8,34 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
+import { ThemeContext } from "../context/themeContext"
+import styled from "@emotion/styled"
 import Header from "./header"
-import ThemeWrapper from "./themeWrapper"
+import SiteWrapper from "./siteWrapper"
+import CustomLink from "./customLink"
+
+const themes = {
+	light: {
+		foreground: "#222222",
+		background: "#ffffff",
+	},
+	dark: {
+		foreground: "#ffffff",
+		background: "#222222",
+	},
+}
+
+const ThemedLayout = styled.div`
+	color: ${(props) => themes[props.theme.name].foreground};
+	background-color: ${(props) =>
+		themes[props.theme.name].background};
+	min-height: 100vh;
+
+	& a {
+		color: ${(props) =>
+			props.theme.name === "dark" ? "#ffffff" : "inherit"};
+	}
+`
 
 const Layout = ({ children }) => {
 	const data = useStaticQuery(graphql`
@@ -24,27 +49,38 @@ const Layout = ({ children }) => {
 	`)
 
 	return (
-		<ThemeWrapper>
-			<Header
-				siteTitle={data.site.siteMetadata.title || `Title`}
-			/>
-			<div className="site-wrapper">
-				<div className="bx--grid">
-					<main>{children}</main>
-					<footer
-						style={{
-							marginTop: `2rem`,
-						}}
-					>
-						© {new Date().getFullYear()}, Built with
-						{` `}
-						<a href="https://www.gatsbyjs.com">
-							Gatsby →
-						</a>
-					</footer>
-				</div>
-			</div>
-		</ThemeWrapper>
+		<ThemeContext.Consumer>
+			{(theme) => (
+				<ThemedLayout theme={theme}>
+					<Header
+						siteTitle={
+							data.site.siteMetadata.title || `Title`
+						}
+						theme={theme}
+					/>
+
+					<SiteWrapper>
+						<div>
+							<main>{children}</main>
+							<footer
+								style={{
+									marginTop: `2rem`,
+								}}
+							>
+								© {new Date().getFullYear()}, Built
+								with
+								{` `}
+								<CustomLink
+									external
+									href="https://www.gatsbyjs.com"
+									title="Gatsby"
+								/>
+							</footer>
+						</div>
+					</SiteWrapper>
+				</ThemedLayout>
+			)}
+		</ThemeContext.Consumer>
 	)
 }
 
