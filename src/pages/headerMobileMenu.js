@@ -7,30 +7,35 @@ const HeaderMobileMenu = () => {
 
 	const animationContainer = useRef()
 
+	const anim = useRef(null) // store anim variable independetntly from (re)rendering
+
 	useEffect(() => {
-		const anim = lottie.loadAnimation({
+		anim.current = lottie.loadAnimation({
 			container: animationContainer.current,
 			renderer: "svg",
 			loop: false,
 			autoplay: false,
 			animationData: animation,
 		})
-		return () => anim.destroy() // optional clean up for unmounting
+		return () => anim.current.destroy() // optional clean up for unmounting
 	}, [])
+
+	const handleClick = () => {
+		if (!open) {
+			anim.current.playSegments([0, 60], true)
+			setOpen(true)
+		} else {
+			anim.current.playSegments([60, 119], true)
+			setOpen(false)
+		}
+	}
 
 	return (
 		<>
 			<button
+				type="button"
 				className="header--mobile-button"
-				onClick={() => {
-					if (!open) {
-						anim.playSegments([0, 60], true),
-							setOpen(true)
-					} else {
-						anim.playSegments([60, 119], true),
-							setOpen(false)
-					}
-				}}
+				onClick={handleClick}
 			>
 				<div
 					className="header--mobile-icon"
