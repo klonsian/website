@@ -18,7 +18,10 @@
 					"variants",
 					"responsive",
 					"screen",
-					"include"
+					"include",
+					"mixin",
+					"function",
+					"return"
 				]
 			}
 		],

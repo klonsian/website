@@ -2,10 +2,10 @@ import PropTypes from "prop-types"
 import React, { useEffect, useRef } from "react"
 // import firebase from "gatsby-plugin-firebase"
 // import { AuthContext } from "../context/auth"
-import Logo from "./logo"
 import lottie from "lottie-web"
-import animation from "../_data/animations/dark-mode-toggle.json"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
+import Logo from "./logo"
+import animation from "../_data/animations/dark-mode-toggle.json"
 import HeaderLink from "./headerLink"
 
 const Header = ({ siteTitle }) => {
@@ -28,11 +28,11 @@ const Header = ({ siteTitle }) => {
 			autoplay: false,
 			animationData: animation,
 		})
-	}, [animationContainer])
+	}, [])
 
 	return (
 		<div className="site-wrapper">
-			<div class="bx--grid">
+			<div className="bx--grid">
 				<header className="header--container">
 					<Logo />
 					<div className="header--menu">

@@ -1,45 +1,46 @@
 @import "./_tokens.scss";
 
-/********SPACE******/
+/********  SPACE  ******/
 @function getSize($size) {
 	$spaceTokens: map-get($tokens, "space");
 	@return map-get($spaceTokens, $size);
 }
 
-/**padding**/
+/**  padding  **/
 @mixin padding($size) {
-	padding: getSize($size);
+	padding: getsize($size);
 }
 @mixin padding-top($size) {
-	padding-top: getSize($size);
+	padding-top: getsize($size);
 }
 @mixin padding-vertical($size) {
-	padding-top: getSize($size);
-	padding-bottom: getSize($size);
+	padding-top: getsize($size);
+	padding-bottom: getsize($size);
 }
 
-/**margin**/
+/**  margin  **/
 @mixin margin($size) {
-	margin: getSize($size);
+	margin: getsize($size);
 }
 
-/********COLOR******/
+/********  COLOR  ******/
 @function getColor($color, $size: "base") {
 	$colorTokens: map-get($tokens, "color");
 	$selected: map-get($colorTokens, $color);
 	@return map-get($selected, $size);
 }
 
-/**color**/
+/**  color  **/
 @mixin color($color, $size: "base") {
-	color: getColor($color, $size);
-}
-/**background-color**/
-@mixin background-color($color, $size: "base") {
-	background-color: getColor($color, $size);
+	color: getcolor($color, $size);
 }
 
-/*****TYPOGRAPHY****/
+/**  background-color  **/
+@mixin background-color($color, $size: "base") {
+	background-color: getcolor($color, $size);
+}
+
+/*****  TYPOGRAPHY  ****/
 $textSizeTokens: map-get($tokens, "textSize");
 $textWeightTokens: map-get($tokens, "textWeight");
 
