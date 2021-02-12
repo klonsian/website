@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useContext } from "react"
 import { navigate } from "gatsby"
+import React, { useContext } from "react"
+
 import { AuthContext } from "../context/auth"
 
 const PrivateRoute = ({

@@ -22,7 +22,28 @@
 	"rules": {
 		"prettier/prettier": "error",
 		"import/no-extraneous-dependencies": 0,
-		"import/no-unresolved": 0,
+		"import/no-unresolved": "off",
+		"import/named": "warn",
+		"import/namespace": "warn",
+		"import/no-named-as-default": "off",
+		"import/export": "warn",
+		"import/order": [
+			"error",
+			{
+				"groups": [
+					"builtin",
+					"external",
+					"parent",
+					"sibling",
+					"index"
+				],
+				"newlines-between": "always",
+				"alphabetize": {
+					"order": "asc",
+					"caseInsensitive": true
+				}
+			}
+		],
 		"react-hooks/exhaustive-deps": 0,
 		"jsx-a11y/anchor-is-valid": 0,
 		"no-console": 0,

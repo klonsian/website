@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from "react"
+import cx from "classnames"
 import lottie from "lottie-web"
+import React, { useEffect, useRef, useState } from "react"
+
 import animation from "../_data/anim_menu.json"
 
 const HeaderMobileMenu = () => {
@@ -24,9 +26,11 @@ const HeaderMobileMenu = () => {
 		if (!open) {
 			anim.current.playSegments([0, 60], true)
 			setOpen(true)
+			console.log(open)
 		} else {
 			anim.current.playSegments([60, 119], true)
 			setOpen(false)
+			console.log(open)
 		}
 	}
 
@@ -42,7 +46,11 @@ const HeaderMobileMenu = () => {
 					ref={animationContainer}
 				/>
 			</button>
-			<div className="header--mobile-container">
+			<div
+				className={cx("header--mobile-container", {
+					"header--mobile-container__open": open,
+				})}
+			>
 				<div className="header--mobile-menu">Link 1</div>
 			</div>
 		</>

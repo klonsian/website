@@ -11,7 +11,7 @@ const Switch = ({ onChange, id, checked }) => {
 				onChange={onChange}
 				checked={checked}
 			/>
-			<label htmlFor={id} className="switch--toggle"></label>
+			<label htmlFor={id} className="switch--toggle" />
 		</div>
 	)
 }
