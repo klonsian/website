@@ -1,8 +1,8 @@
+import cx from "classnames"
+import { navigate } from "gatsby"
+import firebase from "gatsby-plugin-firebase"
 import React, { useContext, useState } from "react"
 
-import cx from "classnames"
-import firebase from "gatsby-plugin-firebase"
-import { navigate } from "gatsby"
 import { AuthContext } from "../context/auth"
 
 const Login = () => {
@@ -11,6 +11,8 @@ const Login = () => {
 		password: "",
 		error: null,
 	})
+
+	const redirectUrl = localStorage.getItem("privateUrl")
 
 	const errorMessage =
 		"Oops. Something weird happened. Please try again."
@@ -30,7 +32,7 @@ const Login = () => {
 				.auth()
 				.signInWithEmailAndPassword(data.email, data.password)
 			setUser(result)
-			navigate("/")
+			navigate(redirectUrl)
 		} catch (err) {
 			setData({ ...data, error: errorMessage })
 			console.log(err.message)

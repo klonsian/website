@@ -1,7 +1,8 @@
 import React from "react"
+
+import CustomLink from "../components/customLink"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import CustomLink from "../components/customLink"
 
 const IndexPage = () => {
 	return (
@@ -22,6 +23,12 @@ const IndexPage = () => {
 						<CustomLink
 							to="/work/page-2/"
 							title="Go to page 2"
+						/>
+					</p>
+					<p>
+						<CustomLink
+							to="/work/page-3/"
+							title="Go to page 3"
 						/>
 					</p>
 				</div>

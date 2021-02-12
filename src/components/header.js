@@ -1,22 +1,23 @@
 import { useMediaQuery } from "beautiful-react-hooks"
+import { Link, navigate } from "gatsby"
+import firebase from "gatsby-plugin-firebase"
 import PropTypes from "prop-types"
 import React, { useContext } from "react"
 
-// import { Link, navigate } from "gatsby"
-// import firebase from "gatsby-plugin-firebase"
-// import { AuthContext } from "../context/auth"
+import { AuthContext } from "../context/auth"
+
 import HeaderLink from "./headerLink"
 import SiteWrapper from "./siteWrapper"
 import Switch from "./switch"
 
 const Header = ({ siteTitle, theme }) => {
 	const isSmall = useMediaQuery("(max-width: 671px)")
-	// const { user } = useContext(AuthContext)
+	const { user } = useContext(AuthContext)
 
-	// const handleLogout = async () => {
-	// 	await firebase.auth().signOut()
-	// 	navigate("/login")
-	// }
+	const handleLogout = async () => {
+		await firebase.auth().signOut()
+		navigate("/login")
+	}
 
 	return (
 		<section id="header">
@@ -46,7 +47,7 @@ const Header = ({ siteTitle, theme }) => {
 								/>
 							</div>
 						)}
-						{/* <h6>
+						<h6>
 							{!user ? (
 								<>
 									<Link to="/login">Login</Link>
@@ -59,7 +60,7 @@ const Header = ({ siteTitle, theme }) => {
 									Logout
 								</Link>
 							)}
-						</h6> */}
+						</h6>
 					</div>
 				</header>
 			</SiteWrapper>

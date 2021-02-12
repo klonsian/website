@@ -11,6 +11,7 @@ const PrivateRoute = ({
 	...rest
 }) => {
 	const { user } = useContext(AuthContext)
+	localStorage.setItem("privateUrl", location.pathname)
 
 	return <>{!user ? navigate("/login") : <Component {...rest} />}</>
 }

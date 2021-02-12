@@ -19,7 +19,7 @@ const Switch = ({ onChange, id, checked }) => {
 Switch.propTypes = {
 	onChange: PropTypes.func.isRequired,
 	id: PropTypes.string.isRequired,
-	checked: PropTypes.node,
+	checked: PropTypes.bool.isRequired,
 }
 
 export default Switch
