@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import cx from "classnames"
 import { navigate } from "gatsby"
 import firebase from "gatsby-plugin-firebase"

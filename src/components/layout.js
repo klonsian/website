@@ -30,10 +30,10 @@ const themes = {
 }
 
 const ThemedLayout = styled.div`
-	color: ${(props) => themes[props.theme.name].foreground};
+	min-height: 100vh;
 	background-color: ${(props) =>
 		themes[props.theme.name].background};
-	min-height: 100vh;
+	color: ${(props) => themes[props.theme.name].foreground};
 
 	& a {
 		color: ${(props) =>
@@ -42,7 +42,9 @@ const ThemedLayout = styled.div`
 `
 
 const Layout = ({ children }) => {
-	const isSmall = useMediaQuery("(max-width: 671px)")
+	const isSmall =
+		typeof window !== "undefined" &&
+		useMediaQuery("(max-width: 671px)")
 	const data = useStaticQuery(graphql`
 		query SiteTitleQuery {
 			site {
