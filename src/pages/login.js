@@ -12,7 +12,9 @@ const Login = () => {
 		error: null,
 	})
 
-	const redirectUrl = localStorage.getItem("privateUrl")
+	const redirectUrl =
+		typeof window !== "undefined" &&
+		localStorage.getItem("privateUrl")
 
 	const errorMessage =
 		"Oops. Something weird happened. Please try again."
