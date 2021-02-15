@@ -1,0 +1,5 @@
+src/
+.vscode/
+.cache
+README.md
+node_modules
