@@ -2,7 +2,7 @@
 import cx from "classnames"
 import { navigate } from "gatsby"
 import firebase from "gatsby-plugin-firebase"
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState, useRef } from "react"
 
 import { AuthContext } from "../context/auth"
 
@@ -13,9 +13,11 @@ const Login = () => {
 		error: null,
 	})
 
-	const redirectUrl =
-		typeof window !== "undefined" &&
-		localStorage.getItem("privateUrl")
+	const redirectUrl = useRef(null)
+
+	useEffect(() => {
+		redirectUrl.current = localStorage.getItem("privateUrl")
+	}, [])
 
 	const errorMessage =
 		"Oops. Something weird happened. Please try again."
@@ -35,7 +37,8 @@ const Login = () => {
 				.auth()
 				.signInWithEmailAndPassword(data.email, data.password)
 			setUser(result)
-			navigate(redirectUrl)
+			console.log(redirectUrl.current)
+			navigate(redirectUrl.current)
 		} catch (err) {
 			setData({ ...data, error: errorMessage })
 			console.log(err.message)

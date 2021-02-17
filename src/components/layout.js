@@ -6,7 +6,6 @@
  */
 
 import styled from "@emotion/styled"
-import { useMediaQuery } from "beautiful-react-hooks"
 import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
@@ -42,9 +41,6 @@ const ThemedLayout = styled.div`
 `
 
 const Layout = ({ children }) => {
-	const isSmall =
-		typeof window !== "undefined" &&
-		useMediaQuery("(max-width: 671px)")
 	const data = useStaticQuery(graphql`
 		query SiteTitleQuery {
 			site {
@@ -59,7 +55,7 @@ const Layout = ({ children }) => {
 		<ThemeContext.Consumer>
 			{(theme) => (
 				<ThemedLayout theme={theme}>
-					{isSmall && <HeaderMobileMenu />}
+					<HeaderMobileMenu />
 					<Header
 						siteTitle={
 							data.site.siteMetadata.title || `Title`

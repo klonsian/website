@@ -1,4 +1,3 @@
-import { useMediaQuery } from "beautiful-react-hooks"
 // import { Link, navigate } from "gatsby"
 // import firebase from "gatsby-plugin-firebase"
 import PropTypes from "prop-types"
@@ -11,10 +10,6 @@ import SiteWrapper from "./siteWrapper"
 import Switch from "./switch"
 
 const Header = ({ siteTitle, theme }) => {
-	const isSmall =
-		typeof window !== "undefined" &&
-		useMediaQuery("(max-width: 671px)")
-
 	// const { user } = useContext(AuthContext)
 
 	// const handleLogout = async () => {
@@ -28,28 +23,24 @@ const Header = ({ siteTitle, theme }) => {
 				<header className="header--box">
 					<div className="header--container">
 						<HeaderLink to="/" title="Fabian Klonsdorf" />
-						{!isSmall && (
-							<div className="header--menu">
-								<HeaderLink to="/work" title="Work" />
-								<HeaderLink to="/blog" title="Blog" />
-								<HeaderLink
-									to="/about"
-									title="About"
-								/>
-								<Switch
-									onChange={() =>
-										theme.updateTheme(
-											theme.name === "light"
-												? "dark"
-												: "light"
-										)
-									}
-									checked={theme.name === "dark"}
-									id="darkmode"
-									label="Dark Mode"
-								/>
-							</div>
-						)}
+						<div className="header--menu">
+							<HeaderLink to="/work" title="Work" />
+							<HeaderLink to="/blog" title="Blog" />
+							<HeaderLink to="/about" title="About" />
+							<Switch
+								onChange={() =>
+									theme.updateTheme(
+										theme.name === "light"
+											? "dark"
+											: "light"
+									)
+								}
+								checked={theme.name === "dark"}
+								id="darkmode"
+								label="Dark Mode"
+							/>
+						</div>
+
 						{/* <h6>
 							{!user ? (
 								<>
